@@ -1,4 +1,4 @@
-public class Cart {
+public class Cart { 
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc[] dvds ;
     private int qtyOrdered;
