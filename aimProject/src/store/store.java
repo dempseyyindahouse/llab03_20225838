@@ -1,8 +1,6 @@
 package store;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import disc.DigitalVideoDisc;
 
 public class Store {
@@ -23,20 +21,12 @@ public class Store {
     }
 
     public void removeDVD(DigitalVideoDisc disc) {
-        Iterator<DigitalVideoDisc> iterator = itemsInStore.iterator();
-        boolean found = false;
+        int index = itemsInStore.indexOf(disc); // Tìm vị trí của DVD trong danh sách
 
-        while (iterator.hasNext()) {
-            DigitalVideoDisc currentDisc = iterator.next();
-            if (currentDisc.equals(disc)) {
-                iterator.remove(); // Sử dụng iterator để xóa
-                System.out.println("Đã xóa thành công DVD");
-                found = true;
-                break;
-            }
-        }
-
-        if (!found) {
+        if (index != -1) { // Nếu DVD được tìm thấy
+            itemsInStore.remove(index); // Xóa DVD theo chỉ số
+            System.out.println("Đã xóa thành công DVD");
+        } else {
             System.out.println("Không tìm thấy DVD trong giỏ hàng");
         }
     }
